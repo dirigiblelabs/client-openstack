@@ -1,0 +1,4 @@
+{
+  "extension-point":"/openstack/serviceEndpointsProvider",
+  "description":"description for the extension point serviceEndpoints"
+}
