@@ -21,7 +21,7 @@ exports.list = function(auth, queryOptions) {
 		console.error('Error response: ' + response.data);
 	}
 
-	return JSON.parse(response.data);
+	return JSON.parse(response.data).floatingips;
 };
 
 function addQueryOptions(url, queryOptions) {
