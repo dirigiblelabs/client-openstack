@@ -1,1 +1,8 @@
-{"guid":"openstack_api","repository":{"type":"git","branch":"master","url":"https://github.com/dirigiblelabs/openstack_api.git"}}
+{
+    "guid":"openstack_api",
+    "repository":{
+        "type":"git",
+        "branch":"master",
+        "url":"https://github.com/dirigiblelabs/openstack_api.git"
+    }
+}
