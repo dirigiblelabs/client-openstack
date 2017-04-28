@@ -36,6 +36,20 @@ exports.authenticate = function(domain, username, password) {
 		console.error('Error occured during OpenStack authentication: [' + response.statusCode + '] ' + response.statusMessage);
 		console.error('Error response: ' + response.data);
 	}
-	
-	return JSON.parse(response.data);
+
+	var auth = {
+		'token': getAuthToken(response.headers),
+		'entity': JSON.parse(response.data)
+	};
+
+	return auth;
 };
+
+function getAuthToken(headers) {
+	for (var i = 0 ; i < headers.length; i ++) {
+		if (headers[i].name === 'X-Subject-Token') {
+			return headers[i].value;
+		}
+	}
+	return null;
+}
