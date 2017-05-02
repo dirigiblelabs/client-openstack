@@ -54,7 +54,7 @@ exports.get = function(auth, projectId) {
 	});
 
 	if (response.statusCode !== httpResponse.OK) {
-		console.error('Error occured during listing Projects: [' + response.statusCode + '] ' + response.statusMessage);
+		console.error('Error occured during get Project: [' + response.statusCode + '] ' + response.statusMessage);
 		console.error('Error response: ' + response.data);
 	}
 
