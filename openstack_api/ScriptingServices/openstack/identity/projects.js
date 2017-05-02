@@ -42,3 +42,22 @@ exports.list = function(auth) {
 	console.log(response.data);
 	return JSON.parse(response.data).projects;
 };
+
+exports.get = function(auth, projectId) {
+	var url = serviceEndpoints.getIdentityService() + '/v3/projects/' + projectId;
+
+	var response = httpClient.get(url, {
+		'headers': [{
+			'name': 'X-Auth-Token',
+			'value': auth.token
+		}]
+	});
+
+	if (response.statusCode !== httpResponse.OK) {
+		console.error('Error occured during listing Projects: [' + response.statusCode + '] ' + response.statusMessage);
+		console.error('Error response: ' + response.data);
+	}
+
+	console.log(response.data);
+	return JSON.parse(response.data).project;
+};
