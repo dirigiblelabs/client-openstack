@@ -20,7 +20,6 @@ exports.listAll = function(auth) {
 		console.error('Error response: ' + response.data);
 	}
 
-	console.log(response.data);
 	return JSON.parse(response.data).projects;
 };
 
@@ -39,7 +38,6 @@ exports.list = function(auth) {
 		console.error('Error response: ' + response.data);
 	}
 
-	console.log(response.data);
 	return JSON.parse(response.data).projects;
 };
 
@@ -58,6 +56,5 @@ exports.get = function(auth, projectId) {
 		console.error('Error response: ' + response.data);
 	}
 
-	console.log(response.data);
 	return JSON.parse(response.data).project;
 };
