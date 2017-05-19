@@ -35,7 +35,7 @@ exports.create = function(auth, securityGroupRule) {
 			'name': 'Content-Type',
 			'value': 'application/json'
 		}],
-		'data': JSON.stringify(securityGroupRule)
+		'body': JSON.stringify(securityGroupRule)
 	});
 
 	if (response.statusCode !== httpResponse.CREATED) {
