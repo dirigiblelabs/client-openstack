@@ -4,8 +4,12 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/dirigiblelabs/openstack_api.svg)](https://github.com/dirigiblelabs/openstack_api/graphs/contributors)
 
 ## Overview
+1. Set-up:
+```javascript
+TBD
+```
 
-Usage:
+2. Usage:
 
 ```javascript
 var response = require('http/v3/response');
