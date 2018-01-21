@@ -1,0 +1,4 @@
+{
+	'name': 'openstack/extensions/ServiceRegistryProvider',
+	'description': 'Extension Point for the OpenStack API'
+}
