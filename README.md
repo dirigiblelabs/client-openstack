@@ -5,7 +5,25 @@
 
 ## Overview
 
-TBD
+Usage:
+
+```javascript
+var response = require('http/v3/response');
+var Auth = require('openstack/identity/Auth');
+var Servers = require('openstack/compute/Servers');
+
+var domain = '<Domain-Name>';
+var user = '<User-Name>';
+var password = '<Password>';
+var projectId = '<Project-Id>';
+
+var auth = new Auth();
+var token = auth.authenticate(domain, user, password, projectId);
+
+var serversApi = new Servers(token);
+var servers = serversApi.list();
+response.println(JSON.stringify(servers));
+```
 
 ## License
 
