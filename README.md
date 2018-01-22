@@ -5,10 +5,37 @@
 
 ## Overview
 1. Set-up:
-```javascript
-TBD
-```
 
+- Extension
+  ```javascript
+  {
+    'module': 'test/extensions/ServiceRegistryProvider.js',
+    'extensionPoint': 'openstack-ServiceRegistryProvider',
+    'description': 'Service Registry Provider'
+  }
+  ```
+- Service Registry Provider
+  ```javascript
+  // The Keystone service endpoint
+  exports.getIdentityService = function() {
+    return 'https://<host>:<port>';
+  };
+
+  // The Nova service endpoint
+  exports.getComputeService = function() {
+    return 'https://<host>:<port>';
+  };
+
+  // The Cinder service
+  exports.getVolumeService = function() {
+    return 'https://<host>:<port>';
+  };
+
+  // The Neutron service endpont
+  exports.getNetworkService = function() {
+    return 'https://<host>:<port>';
+  };
+  ```
 2. Usage:
 
 ```javascript
