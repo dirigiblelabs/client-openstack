@@ -14,12 +14,14 @@ function FloatingIpsApi(token) {
 
 method.list = function() {
     var response = Api.list.call(this);
-    return JSON.parse(response.text);
+    var entity = JSON.parse(response.text);
+    return entity.floating_ips;
 };
 
 method.get = function(id) {
     var response = Api.get.call(this, [id]);
-    return JSON.parse(response.text);
+    var entity = JSON.parse(response.text);
+    return entity.floating_ip;
 };
 
 module.exports = FloatingIpsApi;

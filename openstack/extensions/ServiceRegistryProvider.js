@@ -1,4 +1,4 @@
-const EXT_POINT_NAME = '/openstack/extensions/ServiceRegistryProvider';
+const EXT_POINT_NAME = 'openstack-ServiceRegistryProvider';
 
 var extensions = require('core/v3/extensions');
 

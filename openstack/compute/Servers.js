@@ -14,12 +14,14 @@ function Servers(token) {
 
 method.list = function() {
     var response = Api.list.call(this);
-    return JSON.parse(response.text);
+    var entity = JSON.parse(response.text);
+    return entity.servers;
 };
 
 method.get = function(id) {
     var response = Api.get.call(this, [id]);
-    return JSON.parse(response.text);
+    var entity = JSON.parse(response.text);
+    return entity.server;
 };
 
 module.exports = Servers;
