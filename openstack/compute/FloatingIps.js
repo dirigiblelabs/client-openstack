@@ -5,12 +5,16 @@ var method = FloatingIpsApi.prototype = Object.create(Api);
 method.constructor = FloatingIpsApi;
 
 function FloatingIpsApi(token) {
-    Api.constructor.apply(this, [token, {
+    Api.constructor.apply(this, [token]);
+}
+
+method.getMetadata = function() {
+	return {
     	'host': ServiceRegistry.getComputeService(),
     	'version': 'v2.1',
     	'kind': 'os-floating-ips'
-    }]);
-}
+    };
+};
 
 method.list = function() {
     var response = Api.list.call(this);

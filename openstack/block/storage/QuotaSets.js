@@ -1,17 +1,17 @@
 var Api = require('openstack/Api').prototype;
 var ServiceRegistry = require('openstack/ServiceRegistry');
-var method = QuotaSets.prototype = Object.create(Api);
+var method = Quota.prototype = Object.create(Api);
 
-method.constructor = QuotaSets;
+method.constructor = Quota;
 
-function QuotaSets(token) {
+function Quota(token) {
     Api.constructor.apply(this, [token]);
 }
 
 method.getMetadata = function() {
 	return {
-    	'host': ServiceRegistry.getComputeService(),
-    	'version': 'v2.1',
+    	'host': ServiceRegistry.getVolumeService(),
+    	'version': 'v2',
     	'kind': 'os-quota-sets'
     };
 };
@@ -30,4 +30,4 @@ method.get = function() {
     return this.list();
 };
 
-module.exports = QuotaSets;
+module.exports = Quota;
