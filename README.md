@@ -4,9 +4,9 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/dirigiblelabs/openstack_api.svg)](https://github.com/dirigiblelabs/openstack_api/graphs/contributors)
 
 ## Overview
-1. Set-up:
+1. **Set-up:**
 
-- Extension
+- _Extension_
   ```javascript
   {
     'module': 'test/extensions/ServiceRegistryProvider.js',
@@ -14,7 +14,7 @@
     'description': 'Service Registry Provider'
   }
   ```
-- Service Registry Provider
+- _Service Registry Provider_
   ```javascript
   // The Keystone service endpoint
   exports.getIdentityService = function() {
@@ -36,7 +36,7 @@
     return 'https://<host>:<port>';
   };
   ```
-2. Usage:
+2. **Usage:**
 
 ```javascript
 var response = require('http/v3/response');
