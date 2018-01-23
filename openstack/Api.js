@@ -31,7 +31,7 @@ method.getOptions = function() {
 
 method.list = function() {
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata());
+	let api = getApi(pattern, this.getMetadata(), this.token);
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
 	return response;
@@ -40,7 +40,7 @@ method.list = function() {
 method.get = function(id) {
 	// TODO Validate the Id?
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata())
+	let api = getApi(pattern, this.getMetadata(), this.token)
 	api += '/' + id;
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
@@ -55,7 +55,7 @@ method.get = function(id) {
 method.create = function(entity) {
 	// TODO Validate the Entity?
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata())
+	let api = getApi(pattern, this.getMetadata(), this.token)
 	let options = this.getOptions();
 	options.data = entity;
 	options.contentType = 'application/json';
@@ -71,7 +71,7 @@ method.create = function(entity) {
 method.update = function(id, entity) {
 	// TODO Validate the Id and the Entity?
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata())
+	let api = getApi(pattern, this.getMetadata(), this.token)
 	api += '/' + id;
 	let options = this.getOptions();
 	options.data = entity;
@@ -83,20 +83,19 @@ method.update = function(id, entity) {
 method.delete = function(id) {
 	// TODO Validate the Id?
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata())
+	let api = getApi(pattern, this.getMetadata(), this.token)
 	api += '/' + id;
 	let options = this.getOptions();
 	let response = httpClient.delete(api, options);
 	return response;
 };
 
-function getApi(pattern, metadata) {
+function getApi(pattern, metadata, token) {
 	let url = pattern
 		.replaceAll('{{host}}', metadata.host)
 		.replaceAll('{{version}}', metadata.version)
-		.replaceAll('{{projectId}}', '91704e43a4ca464e90724564ac97f078')
+		.replaceAll('{{projectId}}', token.token.project.id)
 		.replaceAll('{{kind}}', metadata.kind);
-	console.warn('API module -> URL: ' + url);
 	return url;
 }
 

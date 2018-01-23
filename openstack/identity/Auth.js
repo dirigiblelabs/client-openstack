@@ -22,7 +22,6 @@ method.authenticate = function(domain, user, password, projectId) {
 		console.error(errorMessage);
 		throw new Error(errorMessage);
 	}
-	console.warn(response.text);
 	var token = JSON.parse(response.text);
 	token.token.value = getAuthToken(response.headers);
 	return token;
