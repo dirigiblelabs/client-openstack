@@ -44,6 +44,11 @@ method.get = function(id) {
 	api += '/' + id;
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
+	if (response.statusCode !== 200) {
+		let errorMessage = response.statusCode + ' | ' + response.text;
+		console.error(errorMessage);
+		throw new Error(errorMessage);
+	}
 	return response;
 };
 
@@ -55,6 +60,11 @@ method.create = function(entity) {
 	options.data = entity;
 	options.contentType = 'application/json';
 	let response = httpClient.post(api, options);
+	if (response.statusCode !== 200) {
+		let errorMessage = response.statusCode + ' | ' + response.text;
+		console.error(errorMessage);
+		throw new Error(errorMessage);
+	}
 	return response;
 };
 

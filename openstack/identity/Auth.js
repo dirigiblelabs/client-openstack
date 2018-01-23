@@ -17,6 +17,12 @@ method.authenticate = function(domain, user, password, projectId) {
 	options.text = JSON.stringify(entity);
 	options.contentType = 'application/json';
 	var response = httpClient.post(api, options);
+	if (response.statusCode !== 201) {
+		let errorMessage = response.statusCode + ' | ' + response.text;
+		console.error(errorMessage);
+		throw new Error(errorMessage);
+	}
+	console.warn(response.text);
 	var token = JSON.parse(response.text);
 	token.token.value = getAuthToken(response.headers);
 	return token;
