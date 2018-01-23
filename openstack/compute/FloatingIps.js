@@ -16,14 +16,14 @@ method.getMetadata = function() {
     };
 };
 
-method.list = function() {
-    var response = Api.list.call(this);
+method.list = function(queryParameters) {
+    var response = Api.list.call(this, queryParameters);
     var entity = JSON.parse(response.text);
     return entity.floating_ips;
 };
 
-method.get = function(id) {
-    var response = Api.get.call(this, [id]);
+method.get = function(id, queryParameters) {
+    var response = Api.get.call(this, id, queryParameters);
     var entity = JSON.parse(response.text);
     return entity.floating_ip;
 };

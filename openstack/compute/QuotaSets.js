@@ -20,14 +20,14 @@ method.getApiPattern = function() {
 	return '{{host}}/{{version}}/{{projectId}}/{{kind}}/{{projectId}}';
 };
 
-method.list = function() {
-    var response = Api.list.call(this);
+method.list = function(queryParameters) {
+    var response = Api.list.call(this, queryParameters);
     var entity = JSON.parse(response.text);
     return entity.quota_set;
 };
 
-method.get = function() {
-    return this.list();
+method.get = function(queryParameters) {
+    return this.list(queryParameters);
 };
 
 module.exports = QuotaSets;
