@@ -22,7 +22,6 @@ method.getApiPattern = function() {
 
 method.list = function() {
     var response = Api.list.call(this);
-    console.warn(response.text);
     var entity = JSON.parse(response.text);
     return entity.projects;
 };
