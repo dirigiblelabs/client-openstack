@@ -29,19 +29,21 @@ method.getOptions = function() {
 	};
 };
 
-method.list = function() {
+method.list = function(queryParameters) {
 	let pattern = this.getApiPattern();
 	let api = getApi(pattern, this.getMetadata(), this.token);
+	api += getQueryParameters(queryParameters);
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
 	return response;
 };
 
-method.get = function(id) {
+method.get = function(id, queryParameters) {
 	// TODO Validate the Id?
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata(), this.token)
-	api += '/' + id;
+	let api = getApi(pattern, this.getMetadata(), this.token);
+	api += '/' + id ;
+	api += getQueryParameters(queryParameters);
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
 	if (response.statusCode !== 200) {
@@ -104,4 +106,18 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.replace(new RegExp(search, 'g'), replacement);
 };
 
+function getQueryParameters(parameters) {
+	let queryParameters = '';
+	if (parameters !== null && parameters !== undefined) {
+		for (var i in parameters) {
+			if (queryParameters === '') {
+				queryParameters += '?';
+			} else {
+				queryParameters += '&';
+			}
+			queryParameters += i + '=' + parameters[i];
+		}
+	}
+	return queryParameters;
+}
 module.exports = Api;
