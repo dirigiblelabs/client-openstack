@@ -97,7 +97,7 @@ function getApi(pattern, metadata, token) {
 		.replaceAll('{{host}}', metadata.host)
 		.replaceAll('{{version}}', metadata.version)
 		.replaceAll('{{kind}}', metadata.kind);
-	if (token.token.project !== null) {
+	if (token.token.project) {
 		url = url.replaceAll('{{projectId}}', token.token.project.id);
 	}
 	return url;
