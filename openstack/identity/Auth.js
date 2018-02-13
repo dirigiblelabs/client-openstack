@@ -54,6 +54,10 @@ method.getEntity = function(domain, user, password, projectId) {
 		authEntity.auth.scope = {};
 		authEntity.auth.scope.project = {};
 		authEntity.auth.scope.project.id = projectId;
+	} else {
+		authEntity.auth.scope = {};
+		authEntity.auth.scope.domain = {};
+		authEntity.auth.scope.domain.name = domain;
 	}
 	return authEntity;
 };
