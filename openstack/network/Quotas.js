@@ -20,7 +20,6 @@ method.getApiPattern = function() {
 	return '{{host}}/{{version}}/{{kind}}';
 };
 
-
 method.list = function(queryParameters) {
     var response = Api.list.call(this, queryParameters);
     var entity = JSON.parse(response.text);
