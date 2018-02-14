@@ -28,7 +28,7 @@ method.authenticate = function(domain, user, password, projectId) {
 };
 
 method.getApi = function() {
-	return ServiceRegistry.getIdentityService();	
+	return ServiceRegistry.getIdentityService();
 };
 
 method.getEntity = function(domain, user, password, projectId) {
