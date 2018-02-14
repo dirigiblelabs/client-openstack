@@ -5,7 +5,6 @@ exports.getIdentityService = function() {
 	return ServiceRegistryProvider.getIdentityService();
 };
 
-
 // The Nova service endpoint
 exports.getComputeService = function() {
 	return ServiceRegistryProvider.getComputeService();
