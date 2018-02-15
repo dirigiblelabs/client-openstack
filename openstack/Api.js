@@ -32,7 +32,7 @@ method.getOptions = function() {
 method.list = function(queryParameters) {
 	let pattern = this.getApiPattern();
 	let api = getApi(pattern, this.getMetadata(), this.token);
-	api += getQueryParameters(queryParameters);
+	api += this.getQueryParameters(queryParameters);
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
 	return response;
@@ -43,7 +43,7 @@ method.get = function(id, queryParameters) {
 	let pattern = this.getApiPattern();
 	let api = getApi(pattern, this.getMetadata(), this.token);
 	api += '/' + id ;
-	api += getQueryParameters(queryParameters);
+	api += this.getQueryParameters(queryParameters);
 	let options = this.getOptions();
 	let response = httpClient.get(api, options);
 	if (response.statusCode !== 200) {
@@ -92,6 +92,25 @@ method.delete = function(id) {
 	return response;
 };
 
+method.getApi = function(pattern) {
+	return getApi(pattern, this.getMetadata(), this.token);
+};
+
+method.getQueryParameters = function(parameters) {
+	let queryParameters = '';
+	if (parameters !== null && parameters !== undefined) {
+		for (var i in parameters) {
+			if (queryParameters === '') {
+				queryParameters += '?';
+			} else {
+				queryParameters += '&';
+			}
+			queryParameters += i + '=' + parameters[i];
+		}
+	}
+	return queryParameters;
+}
+
 function getApi(pattern, metadata, token) {
 	let url = pattern
 		.replaceAll('{{host}}', metadata.host)
@@ -108,18 +127,4 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.replace(new RegExp(search, 'g'), replacement);
 };
 
-function getQueryParameters(parameters) {
-	let queryParameters = '';
-	if (parameters !== null && parameters !== undefined) {
-		for (var i in parameters) {
-			if (queryParameters === '') {
-				queryParameters += '?';
-			} else {
-				queryParameters += '&';
-			}
-			queryParameters += i + '=' + parameters[i];
-		}
-	}
-	return queryParameters;
-}
 module.exports = Api;
