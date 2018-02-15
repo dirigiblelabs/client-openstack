@@ -57,12 +57,12 @@ method.get = function(id, queryParameters) {
 method.create = function(entity) {
 	// TODO Validate the Entity?
 	let pattern = this.getApiPattern();
-	let api = getApi(pattern, this.getMetadata(), this.token)
+	let api = getApi(pattern, this.getMetadata(), this.token);
 	let options = this.getOptions();
-	options.data = entity;
+	options.text = JSON.stringify(entity);
 	options.contentType = 'application/json';
 	let response = httpClient.post(api, options);
-	if (response.statusCode !== 200) {
+	if (response.statusCode !== 201) {
 		let errorMessage = response.statusCode + ' | ' + response.text;
 		console.error(errorMessage);
 		throw new Error(errorMessage);
@@ -76,7 +76,7 @@ method.update = function(id, entity) {
 	let api = getApi(pattern, this.getMetadata(), this.token)
 	api += '/' + id;
 	let options = this.getOptions();
-	options.data = entity;
+	options.text = JSON.stringify(entity);
 	options.contentType = 'application/json';
 	let response = httpClient.put(api, options);
 	return response;
