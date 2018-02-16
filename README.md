@@ -1,4 +1,4 @@
-# OpenStack API client for Eclipse Dirigible
+# Open Stack API Client for Eclipse Dirigible
 
 [![Eclipse License](http://img.shields.io/badge/license-Eclipse-brightgreen.svg)](LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/dirigiblelabs/openstack_api.svg)](https://github.com/dirigiblelabs/openstack_api/graphs/contributors)
