@@ -62,7 +62,7 @@ method.getEntity = function(domain, user, password, projectId) {
 };
 
 function getAuthToken(headers) {
-	for (var i = 0 ; i < headers.length; i ++) {
+	for (var i = 0 ; i < headers.length; i++) {
 		if (headers[i].name === 'X-Subject-Token') {
 			return headers[i].value;
 		}
