@@ -123,8 +123,8 @@ function getApi(pattern, metadata, token) {
 }
 
 String.prototype.replaceAll = function(search, replacement) {
-    let target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
+	let target = this;
+	return target.replace(new RegExp(search, 'g'), replacement);
 };
 
 module.exports = Api;
