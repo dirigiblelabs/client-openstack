@@ -99,7 +99,7 @@ method.getApi = function(pattern) {
 method.getQueryParameters = function(parameters) {
 	let queryParameters = '';
 	if (parameters !== null && parameters !== undefined) {
-		for (var i in parameters) {
+		for (let i in parameters) {
 			if (queryParameters === '') {
 				queryParameters += '?';
 			} else {
@@ -123,7 +123,7 @@ function getApi(pattern, metadata, token) {
 }
 
 String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
+    let target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };
 
