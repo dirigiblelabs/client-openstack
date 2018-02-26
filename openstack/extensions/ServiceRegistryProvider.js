@@ -3,8 +3,8 @@ const EXT_POINT_NAME = 'openstack-ServiceRegistryProvider';
 var extensions = require('core/v3/extensions');
 
 exports.getIdentityService = function() {
-	var service = null;
-	var extension = require(getExtension());
+	let service = null;
+	let extension = require(getExtension());
 	if (typeof extension.getIdentityService === 'function') {
 		service = extension.getIdentityService();
 	}
@@ -12,8 +12,8 @@ exports.getIdentityService = function() {
 };
 
 exports.getComputeService = function() {
-	var service = null;
-	var extension = require(getExtension());
+	let service = null;
+	let extension = require(getExtension());
 	if (typeof extension.getComputeService === 'function') {
 		service = extension.getComputeService();
 	}
@@ -21,8 +21,8 @@ exports.getComputeService = function() {
 };
 
 exports.getVolumeService = function() {
-	var service = null;
-	var extension = require(getExtension());
+	let service = null;
+	let extension = require(getExtension());
 	if (typeof extension.getVolumeService === 'function') {
 		service = extension.getVolumeService();
 	}
@@ -30,8 +30,8 @@ exports.getVolumeService = function() {
 };
 
 exports.getNetworkService = function() {
-	var service = null;
-	var extension = require(getExtension());
+	let service = null;
+	let extension = require(getExtension());
 	if (typeof extension.getNetworkService === 'function') {
 		service = extension.getNetworkService();
 	}
