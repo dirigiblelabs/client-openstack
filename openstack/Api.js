@@ -65,7 +65,10 @@ method.create = function(entity) {
 	if (response.statusCode !== 201) {
 		let errorMessage = response.statusCode + ' | ' + response.text;
 		console.error(errorMessage);
-		throw new Error(errorMessage);
+		throw {
+			'statusCode': response.statusCode,
+			'message': response.text
+		};
 	}
 	return response;
 };
