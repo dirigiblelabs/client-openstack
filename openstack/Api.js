@@ -63,12 +63,11 @@ method.create = function(entity) {
 	options.contentType = 'application/json';
 	let response = httpClient.post(api, options);
 	if (response.statusCode !== 201) {
-		let errorMessage = response.statusCode + ' | ' + response.text;
-		console.error(errorMessage);
-		throw {
+		var error = {
 			'statusCode': response.statusCode,
 			'message': response.text
 		};
+		throw error;
 	}
 	return response;
 };
